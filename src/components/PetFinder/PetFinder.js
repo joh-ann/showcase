@@ -37,15 +37,19 @@ function PetFinder() {
     <div className="pet-finder h-screen">
       <PetFinderForm />
       <div className="flex justify-center">
-        <div className="container flex flex-wrap">
+        <div className="container flex flex-wrap justify-center gap-2">
           {results.map((pet) => (
-            <div className="pet-card w-1/4 p-4" key={pet.id}>
+            <div className="pet-card md:w-1/2 lg:w-1/4 p-4" key={pet.id}>
               {pet.photos && pet.photos[0] && pet.photos[0].full && (
-                <img src={pet.photos[0].full} alt={pet.name} />
+                <img className="pet-card-img w-full h-48 object-cover" 
+                src={pet.photos[0].full} 
+                alt={pet.name} 
+                />
                 )}
-                <h3>{pet.name}</h3>
-                <h3>{pet.gender}</h3>
-                <h3>{pet.colors.primary}{pet.breeds.primary}</h3>
+                <div className="pet-card-info flex flex-col  items-center text-sm w-full">
+                  <h3>{pet.name} · {pet.gender[0]}</h3>
+                  <div className="text-xs">{pet.age} · {pet.breeds.primary}</div>
+                </div>
             </div>
           ))}
         </div>
