@@ -64,14 +64,20 @@ function PetFinder() {
         </div>
       </div>
       <div className="page-btns flex justify-end mx-auto w-3/4">
-        <button class="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
-        type="button"
-        onClick={handlePreviousPage}>
-          Previous
-        </button>
-        <button class="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
-        type="button"
-        onClick={handleNextPage}>
+        {currentPage > 1 && (
+          <button 
+            className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+            type="button"
+            onClick={handlePreviousPage}
+            >
+            Previous
+          </button>
+        )}
+        <button 
+          className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+          type="button"
+          onClick={handleNextPage}
+          >
           Next
         </button>
       </div>
