@@ -52,10 +52,12 @@ function PetFinder() {
           {results.map((pet) => (
             <div className="pet-card md:w-1/2 lg:w-1/4 p-4" key={pet.id}>
               {pet.photos && pet.photos[0] && pet.photos[0].full && (
+                <Link to={`/pets/${currentPage}/${pet.id}`}>
                 <img className="pet-card-img w-full h-72 object-cover" 
                 src={pet.photos[0].full} 
                 alt={pet.name} 
                 />
+                </Link>
                 )}
                 <div className="pet-card-info flex flex-col items-center text-sm w-full">
                   <h3>{pet.name} · {pet.gender[0]}</h3>

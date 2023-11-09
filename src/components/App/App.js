@@ -3,6 +3,7 @@ import React from 'react';
 import PetFinder from "../PetFinder/PetFinder";
 import Header from "../Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PetInfo from "../PetInfo/PetInfo";
 
 export const AuthContext = createContext();
 const petFinderKey = "V5As7LiojQosrFnALOipEPaRImeA0H9j2ni72LR57G9dZpwLzs";
@@ -46,7 +47,12 @@ function App() {
         <Routes>
           <Route 
           path="/pets/:page" 
-          element={<PetFinder />} />
+          element={<PetFinder />} 
+          />
+          <Route 
+          path="/pets/:page/:petId" 
+          element={<PetInfo />}
+          />
         </Routes>
       </Router>
     </AuthContext.Provider>
