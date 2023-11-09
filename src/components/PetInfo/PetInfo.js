@@ -34,7 +34,7 @@ function PetInfo() {
   }
 
   return (
-    <div>
+    <div className="container flex items-center justify-center">
       <h2>{petInfo.name}</h2>
     </div>
   );
