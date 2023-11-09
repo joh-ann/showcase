@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../App/App";
+import PetFinderForm from "../PetFinderForm/PetFinderForm";
 
 function PetFinder() {
   const [results, setResults] = useState(null);
@@ -20,7 +21,7 @@ function PetFinder() {
           return;
         }
         const json = await petResults.json();
-        console.log(json.animals);
+        console.log("animals", json.animals);
         setResults(json.animals);
       } catch (error) {
         console.error("An error occurred:", error);
@@ -33,15 +34,22 @@ function PetFinder() {
   if (results === null) return null;
 
   return (
-    <div>
-      {results.map((pet) => (
-        <div key={pet.id}>
-          <h3>{pet.name}</h3>
-          {pet.photos && pet.photos[0] && pet.photos[0].full && (
-            <img src={pet.photos[0].full} alt={pet.name} />
-          )}
+    <div className="pet-finder h-screen">
+      <PetFinderForm />
+      <div className="flex justify-center">
+        <div className="container flex flex-wrap">
+          {results.map((pet) => (
+            <div className="pet-card w-1/4 p-4" key={pet.id}>
+              {pet.photos && pet.photos[0] && pet.photos[0].full && (
+                <img src={pet.photos[0].full} alt={pet.name} />
+                )}
+                <h3>{pet.name}</h3>
+                <h3>{pet.gender}</h3>
+                <h3>{pet.colors.primary}{pet.breeds.primary}</h3>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

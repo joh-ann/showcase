@@ -1,6 +1,7 @@
 import { useEffect, createContext, useState } from "react";
 import React from 'react';
 import PetFinder from "../PetFinder/PetFinder";
+import Header from "../Header/Header";
 
 export const AuthContext = createContext();
 const petFinderKey = "V5As7LiojQosrFnALOipEPaRImeA0H9j2ni72LR57G9dZpwLzs";
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <AuthContext.Provider value={accessToken}>
+      <Header />
       <PetFinder />
     </AuthContext.Provider>
   );
