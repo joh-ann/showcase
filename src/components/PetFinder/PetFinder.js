@@ -4,6 +4,7 @@ import PetFinderForm from "../PetFinderForm/PetFinderForm";
 
 function PetFinder() {
   const [results, setResults] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
   const accessToken = useContext(AuthContext);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ function PetFinder() {
 
     const fetchPets = async () => {
       try {
-        const petResults = await fetch("https://api.petfinder.com/v2/animals", {
+        const petResults = await fetch(`https://api.petfinder.com/v2/animals?page=${currentPage}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
@@ -29,7 +30,15 @@ function PetFinder() {
     };
 
     fetchPets();
-  }, [accessToken]);
+  }, [accessToken, currentPage]);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
 
   if (results === null) return null;
 
@@ -55,10 +64,14 @@ function PetFinder() {
         </div>
       </div>
       <div className="page-btns flex justify-end mx-auto w-3/4">
-        <button class="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" type="button">
+        <button class="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+        type="button"
+        onClick={handlePreviousPage}>
           Previous
         </button>
-        <button class="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" type="button">
+        <button class="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+        type="button"
+        onClick={handleNextPage}>
           Next
         </button>
       </div>
