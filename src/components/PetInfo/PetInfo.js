@@ -10,6 +10,10 @@ function PetInfo() {
   useEffect(() => {
     const fetchPetInfo = async () => {
       try {
+        if (!petId) {
+          return;
+        }
+  
         const response = await fetch(`https://api.petfinder.com/v2/animals/${petId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
@@ -25,10 +29,10 @@ function PetInfo() {
         console.error("An error occurred while fetching pet info:", error);
       }
     };
-
+  
     fetchPetInfo();
-  }, [petId])
-
+  }, [petId, accessToken]);
+  
   if (!petInfo) {
     return <div>Loading...</div>;
   }
