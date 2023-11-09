@@ -2,6 +2,7 @@ import { useEffect, createContext, useState } from "react";
 import React from 'react';
 import PetFinder from "../PetFinder/PetFinder";
 import Header from "../Header/Header";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export const AuthContext = createContext();
 const petFinderKey = "V5As7LiojQosrFnALOipEPaRImeA0H9j2ni72LR57G9dZpwLzs";
@@ -40,8 +41,14 @@ function App() {
 
   return (
     <AuthContext.Provider value={accessToken}>
-      <Header />
-      <PetFinder />
+      <Router>
+        <Header />
+        <Routes>
+          <Route 
+          path="/pets/:page" 
+          element={<PetFinder />} />
+        </Routes>
+      </Router>
     </AuthContext.Provider>
   );
 }
