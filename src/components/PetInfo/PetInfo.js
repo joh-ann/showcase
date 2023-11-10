@@ -25,6 +25,7 @@ function PetInfo() {
         }
         const data = await response.json();
         setPetInfo(data.animal);
+        console.log(data)
       } catch (error) {
         console.error("An error occurred while fetching pet info:", error);
       }
@@ -37,10 +38,50 @@ function PetInfo() {
     return <div>Loading...</div>;
   }
 
+  const handleViewOnPetFinder = () => {
+    window.location.href = petInfo.url;
+  };
+
   return (
-    <div className="container flex items-center justify-center">
-      <h2>{petInfo.name}</h2>
-    </div>
+    <div className="flex flex-col">
+      {petInfo.primary_photo_cropped && petInfo.primary_photo_cropped.full && (
+        <img 
+          className="w-1/4 flex self-center"
+          src={petInfo.primary_photo_cropped.full} 
+          alt={petInfo.name} 
+          />
+          )}
+        <div className="flex self-center text-lg font-semibold">{petInfo.name}</div>
+        <div className="flex self-center text-sm">{petInfo.age} · {petInfo.gender} · {petInfo.size}</div>
+        <div className="flex self-center text-sm">{petInfo.breeds.primary} · {petInfo.contact.address.city}, {petInfo.contact.address.state}</div>
+        <div className="container flex self-center flex-row">
+          <div className="pet-info w-1/2 p-2">
+            <h2 className="text-xl font-semibold">About</h2>
+              <div className="flex flex-col">
+                <p>Characteristics</p>
+                <p className="flex flex-row text-sm">{petInfo.tags && petInfo.tags.join(", ")}</p>
+                <p>Coat Length</p>
+                <p className="flex flex-row text-sm">{petInfo.coat}</p>
+                <p>House-Trained</p>
+                <p className="flex flex-row text-sm">{petInfo.attributes.house_trained ? "Yes" : "No"}</p>
+                <p>Health</p>
+                <p className="flex flex-row text-sm">{petInfo.attributes.shots_current ? "Vaccinations up to date" : "Needs Vaccinations"}, {petInfo.attributes.spayed_neutered ? "spayed/neutered" : "Not spayed/neutered"}</p>
+              </div>
+            </div>
+            <div className="pet-intro w-1/2 p-2">
+              <h2 className="text-xl font-semibold">Meet {petInfo.name}</h2>
+              <p>{petInfo.description}</p>
+              <div className="flex justify-end p-2">
+                <button 
+                  className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                  onClick={handleViewOnPetFinder}
+                  >
+                  View on PetFinder
+                </button>
+              </div>
+            </div>
+        </div>
+      </div>
   );
 };
 
