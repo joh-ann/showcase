@@ -27,6 +27,7 @@ function PetFinder() {
         const json = await petResults.json();
         console.log("animals", json.animals);
         setResults(json.animals);
+        setCurrentPage(1);
       } catch (error) {
         console.error("An error occurred:", error);
       }
@@ -43,11 +44,30 @@ function PetFinder() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
+  const handleSearch = async ({ animalType, location }) => {
+    try {
+      const searchResults = await fetch(`https://api.petfinder.com/v2/animals?types=${animalType}&location=${location}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+      if (!searchResults.ok) {
+        console.error("Error fetching search results");
+        return;
+      }
+      const json = await searchResults.json();
+      console.log("search results", json.animals);
+      setResults(json.animals);
+    } catch (error) {
+      console.error("An error occured during search:", error);
+    }
+  }
+
   if (results === null) return null;
 
   return (
     <div className="pet-finder h-screen">
-      <PetFinderForm />
+      <PetFinderForm onSearch={handleSearch}/>
       <div className="flex justify-center">
         <div className="container flex flex-wrap justify-center gap-2">
           {results.map((pet) => (
