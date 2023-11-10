@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const Autocomplete = ({ onSelect }) => {
   useEffect(() => {
@@ -6,14 +6,42 @@ const Autocomplete = ({ onSelect }) => {
       const input = document.getElementById("inline-location");
       const options = {
         componentRestrictions: { country: ["us", "ca"] },
-        fields: ["formatted_address", "geometry", "name",],
+        fields: ["address_components", "formatted_address", "geometry", "name"],
       };
       const autocomplete = new window.google.maps.places.Autocomplete(input, options);
 
       autocomplete.addListener("place_changed", () => {
         const place = autocomplete.getPlace();
         console.log("Selected Place:", place);
-        onSelect(place.name);
+
+        let formattedLocation;
+
+        if (place.address_components && place.address_components.length > 0) {
+          const hasNumber = /\d/.test(place.name || place.formatted_address);
+          
+          if (hasNumber) {
+            formattedLocation = place.name || place.formatted_address;
+          } else {
+            const city = place.address_components.find(component =>
+              component.types.includes("locality")
+            );
+            const state = place.address_components.find(component =>
+              component.types.includes("administrative_area_level_1")
+            );
+
+            if (city && state) {
+              formattedLocation = `${city.long_name}, ${state.short_name}`;
+            } else {
+              formattedLocation = place.formatted_address;
+            }
+          }
+        } else {
+          // If no address components, use the formatted address
+          formattedLocation = place.formatted_address;
+        }
+
+        onSelect(formattedLocation);
+        console.log(formattedLocation);
       });
     };
 
