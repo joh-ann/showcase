@@ -27,7 +27,6 @@ function PetFinder() {
         const json = await petResults.json();
         console.log("animals", json.animals);
         setResults(json.animals);
-        setCurrentPage(1);
       } catch (error) {
         console.error("An error occurred:", error);
       }
@@ -107,7 +106,6 @@ function PetFinder() {
         {currentPage > 1 && (
         <Link to={`/pets/${currentPage - 1}`} 
           className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
-          type="button"
           onClick={handlePreviousPage}
           >
           Previous
@@ -115,7 +113,6 @@ function PetFinder() {
         )}
         <Link to={`/pets/${currentPage + 1}`} 
           className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
-          type="button"
           onClick={handleNextPage}
           >
           Next
