@@ -45,7 +45,7 @@ function PetInfo() {
 
   return (
     <div className="flex flex-col">
-      {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full (
+      {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full && (
         <img 
           className="w-1/4 flex self-center"
           src={petInfo.photos[0].full}
