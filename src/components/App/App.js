@@ -4,6 +4,7 @@ import PetFinder from "../PetFinder/PetFinder";
 import Header from "../Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PetInfo from "../PetInfo/PetInfo";
+import Unleash from "../Unleash/Unleash";
 
 export const AuthContext = createContext();
 const petFinderKey = "V5As7LiojQosrFnALOipEPaRImeA0H9j2ni72LR57G9dZpwLzs";
@@ -45,6 +46,10 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          <Route 
+          path="/" 
+          element={<Unleash />} 
+          />
           <Route 
           path="/pets/:page" 
           element={<PetFinder />} 
