@@ -43,16 +43,6 @@ function PetInfo() {
     window.location.href = petInfo.url;
   };
 
-  const displayNoImg = () => {
-    return (
-      <img 
-      className="w-1/4 flex self-center"
-      src={noImage}
-      alt="No Image"
-      />
-    );
-  }
-
   return (
     <div className="flex flex-col">
       {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full (
