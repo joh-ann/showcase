@@ -1,8 +1,11 @@
 import { useState } from "react";
+import Select from "react-select";
+import { Map, GoogleApiWrapper, Autocomplete } from 'google-maps-react';
 
 function PetFinderForm({ onSearch }) {
   const [animalType, setAnimalType] = useState("");
   const [location, setLocation] = useState("");
+  const [locationOptions, setLocationOptions] = useState([]);
 
   const handleSearch = () => {
     onSearch({ animalType, location })
