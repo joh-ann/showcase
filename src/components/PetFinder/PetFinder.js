@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../App/App";
 import PetFinderForm from "../PetFinderForm/PetFinderForm";
 import { useParams, Link } from "react-router-dom";
+import noImage from "../../images/no-img.png";
 
 function PetFinder() {
   const [results, setResults] = useState(null);
@@ -55,12 +56,18 @@ function PetFinder() {
               key={pet.id}
               to={`/pets/${currentPage}/${pet.id}`}
             >
-              {pet.photos && pet.photos[0] && pet.photos[0].full && (
-                <img 
-                  className="pet-card-img w-full h-72 object-cover" 
-                  src={pet.photos[0].full} 
-                  alt={pet.name} 
-                />
+                {pet.photos && pet.photos.length > 0 && pet.photos[0].full && (
+                  <img 
+                    className="pet-card-img w-full h-72 object-cover" 
+                    src={pet.photos[0].full} 
+                    alt={pet.name} 
+                  />
+                ) || (
+                  <img 
+                    className="pet-card-img w-full h-72 object-cover" 
+                    src={noImage} 
+                    alt={pet.name} 
+                  />
                 )}
                 <div className="pet-card-info flex flex-col items-center text-sm w-full">
                   <h3>{pet.name} · {pet.gender[0]}</h3>
