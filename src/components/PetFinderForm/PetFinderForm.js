@@ -1,11 +1,8 @@
 import { useState } from "react";
-import Select from "react-select";
-import { Map, GoogleApiWrapper, Autocomplete } from 'google-maps-react';
 
 function PetFinderForm({ onSearch }) {
   const [animalType, setAnimalType] = useState("");
   const [location, setLocation] = useState("");
-  const [locationOptions, setLocationOptions] = useState([]);
 
   const handleSearch = () => {
     onSearch({ animalType, location })
@@ -18,7 +15,7 @@ function PetFinderForm({ onSearch }) {
           className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 text-sm" 
           id="inline-type"
           type="text" 
-          placeholder="Search Bulldog, Kitten, etc."
+          placeholder="Search Pet"
           value={animalType}
           onChange={(e) => setAnimalType(e.target.value)}
         />
@@ -28,7 +25,7 @@ function PetFinderForm({ onSearch }) {
           className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 text-sm" 
           id="inline-location" 
           type="text" 
-          placeholder="Enter City, State, or ZIP"
+          placeholder="Enter City, State or ZIP"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />

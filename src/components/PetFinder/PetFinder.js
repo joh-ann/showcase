@@ -45,8 +45,13 @@ function PetFinder() {
   };
 
   const handleSearch = async ({ animalType, location }) => {
+    if (!animalType || !location) {
+      console.error("Both animalType and location are required for search");
+      return;
+    }
+
     try {
-      const searchResults = await fetch(`https://api.petfinder.com/v2/animals?types=${animalType}&location=${location}`, {
+      const searchResults = await fetch(`https://api.petfinder.com/v2/animals?type=${animalType}&location=${location}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`
         }
