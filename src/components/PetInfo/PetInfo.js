@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../App/App";
 import { useParams } from "react-router-dom";
+import noImage from "../../images/no-img.png";
 
 function PetInfo() {
   const { petId } = useParams();
@@ -44,11 +45,17 @@ function PetInfo() {
 
   return (
     <div className="flex flex-col">
-      {petInfo.primary_photo_cropped && petInfo.primary_photo_cropped.full && (
+      {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full && (
         <img 
           className="w-1/4 flex self-center"
-          src={petInfo.primary_photo_cropped.full} 
+          src={petInfo.photos[0].full}
           alt={petInfo.name} 
+          />
+      ) || (
+          <img 
+            className="w-1/4 flex self-center" 
+            src={noImage} 
+            alt={petInfo.name} 
           />
           )}
         <div className="flex self-center text-lg font-semibold">{petInfo.name}</div>

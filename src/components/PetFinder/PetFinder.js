@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../App/App";
 import PetFinderForm from "../PetFinderForm/PetFinderForm";
 import { useParams, Link } from "react-router-dom";
+import noImage from "../../images/no-img.png";
 
 function PetFinder() {
   const [results, setResults] = useState(null);
@@ -26,6 +27,7 @@ function PetFinder() {
         const json = await petResults.json();
         console.log("animals", json.animals);
         setResults(json.animals);
+        setCurrentPage(1);
       } catch (error) {
         console.error("An error occurred:", error);
       }
@@ -42,11 +44,35 @@ function PetFinder() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
+  const handleSearch = async ({ animalType, location }) => {
+    if (!animalType || !location) {
+      console.error("Both animalType and location are required for search");
+      return;
+    }
+
+    try {
+      const searchResults = await fetch(`https://api.petfinder.com/v2/animals?type=${animalType}&location=${location}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+      if (!searchResults.ok) {
+        console.error("Error fetching search results");
+        return;
+      }
+      const json = await searchResults.json();
+      console.log("search results", json.animals);
+      setResults(json.animals);
+    } catch (error) {
+      console.error("An error occured during search:", error);
+    }
+  }
+
   if (results === null) return null;
 
   return (
     <div className="pet-finder h-screen">
-      <PetFinderForm />
+      <PetFinderForm onSearch={handleSearch}/>
       <div className="flex justify-center">
         <div className="container flex flex-wrap justify-center gap-2">
           {results.map((pet) => (
@@ -55,15 +81,22 @@ function PetFinder() {
               key={pet.id}
               to={`/pets/${currentPage}/${pet.id}`}
             >
-              {pet.photos && pet.photos[0] && pet.photos[0].full && (
-                <img 
-                  className="pet-card-img w-full h-72 object-cover" 
-                  src={pet.photos[0].full} 
-                  alt={pet.name} 
-                />
+                {pet.photos && pet.photos.length > 0 && pet.photos[0].full && (
+                  <img 
+                    className="pet-card-img w-full h-72 object-cover" 
+                    src={pet.photos[0].full} 
+                    alt={pet.name} 
+                  />
+                ) || (
+                  <img 
+                    className="pet-card-img w-full h-72 object-cover" 
+                    src={noImage} 
+                    alt={pet.name} 
+                  />
                 )}
                 <div className="pet-card-info flex flex-col items-center text-sm w-full">
                   <h3>{pet.name} · {pet.gender[0]}</h3>
+                  <div className="text-xs">{pet.contact.address.city}, {pet.contact.address.state}</div>
                   <div className="text-xs">{pet.age} · {pet.breeds.primary}</div>
                 </div>
             </Link>
