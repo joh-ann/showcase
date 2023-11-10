@@ -25,7 +25,7 @@ function PetFinderForm({ onSearch }) {
           className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 text-sm" 
           id="inline-location" 
           type="text" 
-          placeholder="Enter City, State or ZIP"
+          placeholder="Enter State or ZIP"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />

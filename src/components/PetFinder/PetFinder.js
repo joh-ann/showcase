@@ -96,6 +96,7 @@ function PetFinder() {
                 )}
                 <div className="pet-card-info flex flex-col items-center text-sm w-full">
                   <h3>{pet.name} · {pet.gender[0]}</h3>
+                  <div className="text-xs">{pet.contact.address.city}, {pet.contact.address.state}</div>
                   <div className="text-xs">{pet.age} · {pet.breeds.primary}</div>
                 </div>
             </Link>
