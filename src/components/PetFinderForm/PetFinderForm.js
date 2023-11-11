@@ -1,14 +1,24 @@
 import { useState } from "react";
 import Autocomplete from "./Autocomplete";
 
+const validAnimalTypes = ["dog", "cat"];
+
 function PetFinderForm({ onSearch }) {
   const [animalType, setAnimalType] = useState("");
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
 
   const handleSearch = () => {
-    if (!animalType || !location) {
-      setError("Please enter both animal type and location");
+    console.log("Animal Type:", animalType);
+    console.log("Valid Animal Types:", validAnimalTypes);
+
+    if (!animalType || !validAnimalTypes.includes(animalType.trim().toLowerCase())) {
+      setError("Please enter a valid animal type");
+      return;
+    }
+
+    if (!location) {
+      setError("Please enter the location");
       return;
     }
 
@@ -24,7 +34,7 @@ function PetFinderForm({ onSearch }) {
           className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 text-sm" 
           id="inline-type"
           type="text" 
-          placeholder="Search Pet"
+          placeholder="Search Dog or Cat"
           value={animalType}
           onChange={(e) => setAnimalType(e.target.value)}
         />
