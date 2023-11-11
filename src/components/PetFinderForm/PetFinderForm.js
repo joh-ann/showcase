@@ -18,7 +18,7 @@ function PetFinderForm({ onSearch }) {
     }
 
     if (!location) {
-      setError("Please enter the location");
+      setError("Please enter a valid location");
       return;
     }
 
