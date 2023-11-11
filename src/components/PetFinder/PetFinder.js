@@ -9,6 +9,7 @@ function PetFinder() {
   const [currentPage, setCurrentPage] = useState(1);
   const accessToken = useContext(AuthContext);
   const { page } = useParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (accessToken === null) return;
@@ -57,13 +58,26 @@ function PetFinder() {
       });
       if (!searchResults.ok) {
         console.error("Error fetching search results");
+        setError("No pets found in the area");
+        setResults([]);
         return;
       }
+
       const json = await searchResults.json();
-      console.log("search results", json.animals);
+
+      if (!json.animals || json.animals.length === 0) {
+        setError("No search results found");
+        setResults([]);
+        return;
+      }
+
       setResults(json.animals);
+      setError(null);
+
     } catch (error) {
       console.error("An error occured during search:", error);
+      setError("An error occured during search");
+      setResults([]);
     }
   }
 
@@ -118,6 +132,11 @@ function PetFinder() {
           Next
         </Link>
       </div>
+      {error && (
+        <div className="error-message text-red-500 mt-4">
+          {error}
+        </div>
+      )}
     </div>
   );
 }
