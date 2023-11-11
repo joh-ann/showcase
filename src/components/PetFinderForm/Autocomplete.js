@@ -36,7 +36,6 @@ const Autocomplete = ({ onSelect }) => {
             }
           }
         } else {
-          // If no address components, use the formatted address
           formattedLocation = place.formatted_address;
         }
 
