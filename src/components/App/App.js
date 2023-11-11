@@ -44,6 +44,10 @@ function App() {
     fetchAccessToken();
   }, []);
 
+  function NotFound() {
+    return <div>Page Not Found</div>;
+  }
+
   return (
     <AuthContext.Provider value={accessToken}>
       <Router>
@@ -62,6 +66,9 @@ function App() {
           path="/pets/:page/:petId" 
           element={<PetInfo />}
           />
+          <Route 
+          path="*" 
+          element={<NotFound />} />
         </Routes>
       </Router>
     </AuthContext.Provider>
