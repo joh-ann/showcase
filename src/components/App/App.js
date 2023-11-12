@@ -12,6 +12,7 @@ const petFinderSecret = "DQ9XrfsnAWju3P9VoeQ8GiwAbCG3oNdxSO7ejuWf";
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAccessToken = async () => {
@@ -28,6 +29,7 @@ function App() {
 
         if (!petfinderRes.ok) {
           console.error("Failed to obtain access token");
+          setError("Failed to obtain access token");
           return;
         }
 
@@ -35,16 +37,22 @@ function App() {
         setAccessToken(data.access_token);
       } catch (error) {
         console.error("An error occurred while fetching the access token:", error);
+        setError("An error occurred while fetching the access token");
       }
     }
 
     fetchAccessToken();
   }, []);
 
+  function NotFound() {
+    return <div>Page Not Found</div>;
+  }
+
   return (
     <AuthContext.Provider value={accessToken}>
       <Router>
         <Header />
+        {error && <div>Error: {error}</div>}
         <Routes>
           <Route 
           path="/" 
@@ -58,6 +66,9 @@ function App() {
           path="/pets/:page/:petId" 
           element={<PetInfo />}
           />
+          <Route 
+          path="*" 
+          element={<NotFound />} />
         </Routes>
       </Router>
     </AuthContext.Provider>
