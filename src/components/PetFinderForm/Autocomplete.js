@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from 'prop-types';
 
 const Autocomplete = ({ onSelect }) => {
   useEffect(() => {
@@ -56,6 +57,10 @@ const Autocomplete = ({ onSelect }) => {
       placeholder="Enter City, State or ZIP" />
     </div>
   );
+};
+
+Autocomplete.propTypes = {
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default Autocomplete;
