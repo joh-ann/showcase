@@ -30,7 +30,7 @@ describe('PetFinderForm', () => {
     cy.wait('@getPetResults');
   });
 
-  it('should navigate to the adopt page', () => {
+  it('should display search results', () => {
     cy.url().should('include', '/pets/1');
 
     cy.get('.header').should('exist');
@@ -40,7 +40,7 @@ describe('PetFinderForm', () => {
     cy.get('.header').contains('Missing');
     cy.get('.header').contains('Events');
 
-    cy.get('.pet-card').should('have.length', 2);
+    cy.get('.pet-card').should('have.length', 3);
 
     cy.get('.pet-card').eq(0).should('have.attr', 'id', '69650492');
     cy.get('.pet-card-img').eq(0).should('exist');
@@ -54,12 +54,14 @@ describe('PetFinderForm', () => {
     cy.get('.pet-card').eq(1).contains('The Woodlands, TX');
     cy.get('.pet-card').eq(1).contains('Baby · Domestic Short Hair');
 
-    cy.get('.page-btns').should('have.length', 1);
-    cy.get('.next-btn').click();
-    cy.url().should('include', '/pets/2');
+    cy.get('.pet-card').eq(2).should('have.attr', 'id', '69600670');
+    cy.get('.pet-card-img').eq(2).should('exist');
+    cy.get('.pet-card').eq(2).contains('Twix Cocoapup · M');
+    cy.get('.pet-card').eq(2).contains('Woodinville, WA');
+    cy.get('.pet-card').eq(2).contains('Baby · Australian Cattle Dog');
 
-    cy.get('.previous-btn').should('exist')
-    cy.get('.previous-btn').click();
-    cy.url().should('include', '/pets/1');
+    cy.get('#inline-type').type('Dog');
+    cy.get('#inline-location').type('Woodinville, WA');
+    cy.get('.search-btn').click();
   });
 });

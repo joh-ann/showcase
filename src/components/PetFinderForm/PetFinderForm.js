@@ -12,6 +12,7 @@ function PetFinderForm({ onSearch }) {
   const handleSearch = () => {
     console.log("Animal Type:", animalType);
     console.log("Valid Animal Types:", validAnimalTypes);
+    console.log("Location:", location);
 
     if (!animalType.trim() && !location.trim()) {
       setError("Please enter both animal type and location");
@@ -23,13 +24,16 @@ function PetFinderForm({ onSearch }) {
       return;
     }
 
-    if (!location.trim()) {
+    if (!location.trim() && !document.querySelector("#inline-location").value) {
       setError("Please enter a valid location");
       return;
     }
 
+    const selectedLocation = document.querySelector("#inline-location").value || location.trim();
+    console.log("Typed Location:", selectedLocation)
+
     setError("");
-    onSearch({ animalType, location });
+    onSearch({ animalType, location: selectedLocation });
   };
 
 
@@ -49,12 +53,14 @@ function PetFinderForm({ onSearch }) {
       <Autocomplete
           id="inline-location"
           type="text"
+          value={location}
           onSelect={(selectedLocation) => setLocation(selectedLocation)}
+          onChange={(e) => setLocation(e.target.value)}
         />
       </div>
       {error && <p className="text-red-500 text-xs italic">{error}</p>}
       <button 
-        className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm" 
+        className="search-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm" 
         type="button"
         onClick={handleSearch}
         >
