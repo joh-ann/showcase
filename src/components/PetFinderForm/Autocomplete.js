@@ -5,6 +5,7 @@ const Autocomplete = ({ onSelect }) => {
   useEffect(() => {
     const loadAutocomplete = () => {
       const input = document.getElementById("inline-location");
+      
       const options = {
         componentRestrictions: { country: ["us", "ca"] },
         fields: ["address_components", "formatted_address", "geometry", "name"],
