@@ -58,7 +58,7 @@ function PetFinderForm({ onSearch }) {
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-      {error && <p className="text-red-500 text-xs italic">{error}</p>}
+      {error && <p className="error-message text-red-500 text-xs italic">{error}</p>}
       <button 
         className="search-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm" 
         type="button"
