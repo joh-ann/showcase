@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Autocomplete from "./Autocomplete";
+import PropTypes from 'prop-types';
 
 const validAnimalTypes = ["dog", "cat"];
 
@@ -62,5 +63,9 @@ function PetFinderForm({ onSearch }) {
     </form>
   )
 }
+
+PetFinderForm.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
 
 export default PetFinderForm;
