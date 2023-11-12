@@ -22,6 +22,12 @@ describe('PetFinderForm', () => {
         fixture: 'pets.json' 
       }
     ).as('getPetResults');
+
+    cy.intercept('GET', 'https://api.petfinder.com/v2/animals?type=Dog&location=Woodinville,%20WA',
+      {
+        statusCode: 200,
+        fixture: 'searchResults.json'
+      }).as('getSearchResults');
     
     cy.visit('http://localhost:3000/pets/1');
     
@@ -30,7 +36,7 @@ describe('PetFinderForm', () => {
     cy.wait('@getPetResults');
   });
 
-  it('should display search results', () => {
+  it('should display default pet results and search results', () => {
     cy.url().should('include', '/pets/1');
 
     cy.get('.header').should('exist');
@@ -63,5 +69,13 @@ describe('PetFinderForm', () => {
     cy.get('#inline-type').type('Dog');
     cy.get('#inline-location').type('Woodinville, WA');
     cy.get('.search-btn').click();
+
+    cy.wait('@getSearchResults');
+
+    cy.get('.pet-card').eq(0).should('have.attr', 'id', '69600670');
+    cy.get('.pet-card-img').eq(0).should('exist');
+    cy.get('.pet-card').eq(0).contains('Twix Cocoapup · M');
+    cy.get('.pet-card').eq(0).contains('Woodinville, WA');
+    cy.get('.pet-card').eq(0).contains('Baby · Australian Cattle Dog');
   });
 });
