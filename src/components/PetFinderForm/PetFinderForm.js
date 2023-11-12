@@ -38,10 +38,11 @@ function PetFinderForm({ onSearch }) {
 
 
   return (
-    <form className="container mx-auto h-1/6 flex justify-center items-center">
+    <div className="mx-auto flex items-center justify-center flex-col h-1/6">
+    <form className="container mx-auto flex justify-center items-center">
       <div className="md:w-1/3 m-1">
         <input 
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 text-sm" 
+          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-sm" 
           id="inline-type"
           type="text" 
           placeholder="Search Dog or Cat"
@@ -58,15 +59,16 @@ function PetFinderForm({ onSearch }) {
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-      {error && <p className="error-message text-red-500 text-xs italic">{error}</p>}
       <button 
-        className="search-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm" 
+        className="search-btn shadow bg-green-700 hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm" 
         type="button"
         onClick={handleSearch}
         >
         Search
       </button>
     </form>
+      {error && <p className="error-message text-red-500 text-sm italic">{error}</p>}
+      </div>
   )
 }
 

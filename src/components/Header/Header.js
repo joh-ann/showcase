@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="header bg-purple-700 p-5 flex justify-between">
+    <div className="header bg-gray-200 p-5 flex justify-between">
       <div className="logo">
-        <h1 className="text-xl font-bold text-white">Unleash</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Unleash</h1>
       </div>
-      <nav className="flex space-x-8 text-white">
+      <nav className="flex items-end space-x-8 text-lg text-gray-800">
         <Link to="/" className="hover:underline cursor-pointer">
           Home
         </Link>
