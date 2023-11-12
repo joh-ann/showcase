@@ -29,5 +29,6 @@ describe('Homepage', () => {
       cy.get('.header').contains('Events');
 
       cy.get('.unleash-body').contains('Unleash');
+      cy.url().should('eq', 'http://localhost:3000/');
   });
 });
