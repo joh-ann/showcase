@@ -61,6 +61,37 @@
           "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69650489/1/?bust=1699756133"
         }
       ]
+    },
+    {
+      "age": "Baby",
+      "attributes": {
+        "spayed_neutered": false,
+        "house_trained": false,
+        "declawed": false,
+        "special_needs": false,
+        "shots_current": true
+      },
+      "breeds": {"primary": "Australian Cattle Dog"},
+      "coat": "Short",
+      "colors": {"primary": "Black", "secondary": null},
+      "contact": {
+        "address": {
+          "city": "Woodinville",
+          "state": "WA"
+        }
+      },
+      "description": "This confident, inquisitive pup is constantly alert and aware of his surroundings. Twix Cocoapup loves watching the world go by...",
+      "gender": "Male",
+      "id": 69600670,
+      "name": "Twix Cocoapup",
+      "size": "Medium",
+      "species": "Dog",
+      "url": "https://www.petfinder.com/dog/twix-cocoapup-69600670/wa/woodinville/hart-hearthfire-animal-rescue-team-wa653/?referrer_id=8c42ef4c-c39c-4196-b422-a551b77480ef&utm_source=api&utm_medium=partnership&utm_content=8c42ef4c-c39c-4196-b422-a551b77480ef",
+      "photos": [
+        {
+          "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69600670/1/?bust=1699755757"
+        }
+      ]
     }
   ]
 }

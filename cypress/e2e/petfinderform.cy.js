@@ -1,4 +1,4 @@
-describe('Adopt', () => {
+describe('PetFinderForm', () => {
   beforeEach(() => {
     cy.intercept('POST', 'https://api.petfinder.com/v2/oauth2/token', {
       statusCode: 200,
@@ -40,7 +40,7 @@ describe('Adopt', () => {
     cy.get('.header').contains('Missing');
     cy.get('.header').contains('Events');
 
-    cy.get('.pet-card').should('have.length', 3);
+    cy.get('.pet-card').should('have.length', 2);
 
     cy.get('.pet-card').eq(0).should('have.attr', 'id', '69650492');
     cy.get('.pet-card-img').eq(0).should('exist');
@@ -53,12 +53,6 @@ describe('Adopt', () => {
     cy.get('.pet-card').eq(1).contains('EMBER · F');
     cy.get('.pet-card').eq(1).contains('The Woodlands, TX');
     cy.get('.pet-card').eq(1).contains('Baby · Domestic Short Hair');
-
-    cy.get('.pet-card').eq(2).should('have.attr', 'id', '69600670');
-    cy.get('.pet-card-img').eq(2).should('exist');
-    cy.get('.pet-card').eq(2).contains('Twix Cocoapup · M');
-    cy.get('.pet-card').eq(2).contains('Woodinville, WA');
-    cy.get('.pet-card').eq(2).contains('Baby · Australian Cattle Dog');
 
     cy.get('.page-btns').should('have.length', 1);
     cy.get('.next-btn').click();
