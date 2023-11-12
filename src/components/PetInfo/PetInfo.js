@@ -47,9 +47,10 @@ function PetInfo() {
     <div className="flex flex-col">
       {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full && (
         <img 
-          className="w-1/4 flex self-center"
+          className="pet-info-img w-1/4 flex self-center"
           src={petInfo.photos[0].full}
           alt={petInfo.name} 
+          id={petInfo.id}
           />
       ) || (
           <img 
@@ -58,9 +59,9 @@ function PetInfo() {
             alt={petInfo.name} 
           />
           )}
-        <div className="flex self-center text-lg font-semibold">{petInfo.name}</div>
-        <div className="flex self-center text-sm">{petInfo.age} · {petInfo.gender} · {petInfo.size}</div>
-        <div className="flex self-center text-sm">{petInfo.breeds.primary} · {petInfo.contact.address.city}, {petInfo.contact.address.state}</div>
+        <div className="pet-info flex self-center text-lg font-semibold">{petInfo.name}</div>
+        <div className="pet-info flex self-center text-sm">{petInfo.age} · {petInfo.gender} · {petInfo.size}</div>
+        <div className="pet-info flex self-center text-sm">{petInfo.breeds.primary} · {petInfo.contact.address.city}, {petInfo.contact.address.state}</div>
         <div className="container flex self-center flex-row">
           <div className="pet-info w-1/2 p-2">
             <h2 className="text-xl font-semibold">About</h2>
@@ -80,7 +81,7 @@ function PetInfo() {
               <p>{petInfo.description}</p>
               <div className="flex justify-end p-2">
                 <button 
-                  className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                  className="petfinder-btn bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                   onClick={handleViewOnPetFinder}
                   >
                   View on PetFinder

@@ -91,8 +91,9 @@ function PetFinder() {
           {results.map((pet) => (
             <Link 
               className="pet-card md:w-1/2 lg:w-1/4" 
-              key={pet.id}
+              key={`${currentPage}-${pet.id}`}
               to={`/pets/${currentPage}/${pet.id}`}
+              id={pet.id}
             >
                 {pet.photos && pet.photos.length > 0 && pet.photos[0].full && (
                   <img 
@@ -119,14 +120,14 @@ function PetFinder() {
       <div className="page-btns flex justify-end mx-auto w-3/4">
         {currentPage > 1 && (
         <Link to={`/pets/${currentPage - 1}`} 
-          className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+          className="previous-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
           onClick={handlePreviousPage}
           >
           Previous
         </Link>
         )}
         <Link to={`/pets/${currentPage + 1}`} 
-          className="shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+          className="next-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
           onClick={handleNextPage}
           >
           Next

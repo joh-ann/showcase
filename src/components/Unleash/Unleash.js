@@ -1,6 +1,6 @@
 function Unleash() {
   return (
-    <div>Unleash</div>
+    <div className="unleash-body">Unleash</div>
   )
 }
 

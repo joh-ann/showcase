@@ -1,0 +1,35 @@
+{
+  "animal":
+    {
+      "age": "Baby",
+      "attributes": {
+        "spayed_neutered": true,
+        "house_trained": true,
+        "declawed": false,
+        "special_needs": false,
+        "shots_current": true
+      },
+      "breeds": {"primary": "Domestic Medium Hair"},
+      "coat": "Medium",
+      "colors": {"primary": "Tabby (Tiger Striped)", "secondary": "Black"},
+      "contact": {
+        "address": {
+          "city": "The Woodlands",
+          "state": "TX"
+        }
+      },
+      "description": "Ella is an easy-going kitten who came into rescue with her sister, Emma.  We would love to see them...",
+      "gender": "Female",
+      "id": 69650492,
+      "name": "Ella",
+      "size": "Medium",
+      "species": "Cat",
+      "url": "https://www.petfinder.com/cat/ella-69650492/ky/fort-thomas/lucky-tales-rescue-inc-ky470/?referrer_id=8c42ef4c-c39c-4196-b422-a551b77480ef&utm_source=api&utm_medium=partnership&utm_content=8c42ef4c-c39c-4196-b422-a551b77480ef",
+      "photos": [
+        {
+          "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69650492/6/?bust=1699756148"
+        }
+      ],
+      "tags": ["Playful"]
+    }
+}

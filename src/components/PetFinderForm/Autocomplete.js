@@ -5,6 +5,12 @@ const Autocomplete = ({ onSelect }) => {
   useEffect(() => {
     const loadAutocomplete = () => {
       const input = document.getElementById("inline-location");
+      
+      if (!window.google || !window.google.maps || !window.google.maps.places) {
+        console.error("Google Maps API is not loaded.");
+        return;
+      }
+      
       const options = {
         componentRestrictions: { country: ["us", "ca"] },
         fields: ["address_components", "formatted_address", "geometry", "name"],
