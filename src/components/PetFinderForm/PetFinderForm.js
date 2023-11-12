@@ -12,6 +12,11 @@ function PetFinderForm({ onSearch }) {
     console.log("Animal Type:", animalType);
     console.log("Valid Animal Types:", validAnimalTypes);
 
+    if (!animalType.trim() && !location.trim()) {
+      setError("Please enter both animal type and location");
+      return;
+    }
+
     if (!animalType || !validAnimalTypes.includes(animalType.trim().toLowerCase())) {
       setError("Please enter a valid animal type");
       return;
