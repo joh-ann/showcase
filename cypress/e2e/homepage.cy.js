@@ -21,14 +21,14 @@ describe('Homepage', () => {
     cy.wait('@getToken');
     cy.wait('@googleMapsAPI');
 
-      cy.get('.header').should('exist');
+    cy.url().should('eq', 'http://localhost:3000/');
+    cy.get('.header').should('exist');
 
-      cy.get('.header').contains('Home');
-      cy.get('.header').contains('Adopt');
-      cy.get('.header').contains('Missing');
-      cy.get('.header').contains('Events');
+    cy.get('.header').contains('Home');
+    cy.get('.header').contains('Adopt');
+    cy.get('.header').contains('Missing');
+    cy.get('.header').contains('Events');
 
-      cy.get('.unleash-body').contains('Unleash');
-      cy.url().should('eq', 'http://localhost:3000/');
+    cy.get('.unleash-body').contains('Unleash');
   });
 });

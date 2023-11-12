@@ -29,9 +29,31 @@ describe('Adopt', () => {
     cy.wait('@googleMapsAPI');
     cy.wait('@getPetResults');
   });
-  
+
   it('should navigate to the adopt page', () => {
     cy.url().should('include', '/pets/1');
-    cy.get('.pet-card').should('have.length.greaterThan', 0);
+
+    cy.get('.header').should('exist');
+
+    cy.get('.header').contains('Home');
+    cy.get('.header').contains('Adopt');
+    cy.get('.header').contains('Missing');
+    cy.get('.header').contains('Events');
+
+    cy.get('.pet-card').should('have.length', 2);
+
+    cy.get('.pet-card').eq(0).should('have.attr', 'id', '69650492');
+    cy.get('.pet-card-img').eq(0).should('exist');
+    cy.get('.pet-card').eq(0).contains('Ella · F');
+    cy.get('.pet-card').eq(0).contains('The Woodlands, TX');
+    cy.get('.pet-card').eq(0).contains('Baby · Domestic Medium Hair');
+
+    cy.get('.pet-card').eq(1).should('have.attr', 'id', '69650489');
+    cy.get('.pet-card-img').eq(1).should('exist');
+    cy.get('.pet-card').eq(1).contains('EMBER · F');
+    cy.get('.pet-card').eq(1).contains('The Woodlands, TX');
+    cy.get('.pet-card').eq(1).contains('Baby · Domestic Short Hair');
+
+    cy.get('.page-btns').should('have.length', 1);
   });
 });

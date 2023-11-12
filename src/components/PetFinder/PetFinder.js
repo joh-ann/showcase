@@ -93,6 +93,7 @@ function PetFinder() {
               className="pet-card md:w-1/2 lg:w-1/4" 
               key={`${currentPage}-${pet.id}`}
               to={`/pets/${currentPage}/${pet.id}`}
+              id={pet.id}
             >
                 {pet.photos && pet.photos.length > 0 && pet.photos[0].full && (
                   <img 
