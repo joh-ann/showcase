@@ -69,5 +69,23 @@ describe('PetInfo', () => {
     cy.get('.pet-card').eq(0).should('have.attr', 'id', '69650492').click();
     cy.wait('@getPetInfo');
     cy.url().should('eq', 'http://localhost:3000/pets/1/69650492');
+
+    cy.get('.pet-info-img').should('have.attr', 'id', '69650492');
+    cy.get('.pet-info').contains('Ella');
+    cy.get('.pet-info').contains('Baby · Female · Medium');
+    cy.get('.pet-info').contains('Domestic Medium Hair · The Woodlands, TX');
+    cy.get('.pet-info').contains('About');
+    cy.get('.pet-info').contains('Characteristics');
+    cy.get('.pet-info').contains('Playful');
+    cy.get('.pet-info').contains('Coat Length');
+    cy.get('.pet-info').contains('Medium');
+    cy.get('.pet-info').contains('House-Trained');
+    cy.get('.pet-info').contains('Yes');
+    cy.get('.pet-info').contains('Health');
+    cy.get('.pet-info').contains('Vaccinations up to date, spayed/neutered');
+    cy.get('.pet-intro').contains('Meet Ella');
+    cy.get('.pet-intro').contains('Ella is an easy-going kitten who came into rescue with her sister, Emma. We would love to see them...');
+
+    cy.get('.petfinder-btn').should('exist');
   });
 });
