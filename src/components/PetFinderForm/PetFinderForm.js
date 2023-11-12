@@ -29,9 +29,6 @@ function PetFinderForm({ onSearch }) {
 
     setError("");
     onSearch({ animalType, location });
-
-    setAnimalType("");
-    setLocation("");
   };
 
 
