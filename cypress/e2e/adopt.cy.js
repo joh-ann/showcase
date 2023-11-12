@@ -55,5 +55,11 @@ describe('Adopt', () => {
     cy.get('.pet-card').eq(1).contains('Baby · Domestic Short Hair');
 
     cy.get('.page-btns').should('have.length', 1);
+    cy.get('.next-btn').click();
+    cy.url().should('include', '/pets/2');
+
+    cy.get('.previous-btn').should('exist')
+    cy.get('.previous-btn').click();
+    cy.url().should('include', '/pets/1');
   });
 });
