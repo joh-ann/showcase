@@ -45,8 +45,13 @@ function App() {
   }, []);
 
   function NotFound() {
-    return <div>Page Not Found</div>;
-  }
+    const imageUrl = `https://http.dog/404.jpg`
+    return (
+      <div className="not-found flex flex-col justify-center items-center p-10 text-2xl">
+        <h1 className="mb-10">Page Not Found</h1>
+        <img src={imageUrl} alt="Page Not Found" className="w-1/2 h-auto"/>
+      </div>
+  )}
 
   return (
     <AuthContext.Provider value={accessToken}>

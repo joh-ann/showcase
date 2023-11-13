@@ -58,7 +58,7 @@ const Autocomplete = ({ onSelect }) => {
     <div>
       <input 
       id="inline-location" 
-      className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 text-sm" 
+      className="bg-white appearance-none border-2 border-white rounded w-full py-3 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-sm shadow-md" 
       type="text"
       placeholder="Enter City, State or ZIP" />
     </div>
