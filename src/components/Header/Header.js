@@ -6,7 +6,7 @@ function Header() {
       <div className="logo">
         <h1 className="text-3xl font-bold text-white">Unleash</h1>
       </div>
-      <nav className="flex items-end space-x-8 text-lg text-white mr-10">
+      <nav className="flex items-end gap-4 text-lg text-white mr-10">
         <Link to="/" className="hover:underline cursor-pointer hover:text-green-200 transition duration-300 ease-in-out">
           Home
         </Link>
