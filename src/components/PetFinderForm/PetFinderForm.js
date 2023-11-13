@@ -38,11 +38,11 @@ function PetFinderForm({ onSearch }) {
 
 
   return (
-    <div className="mx-auto flex items-center justify-center flex-col h-1/6">
+    <div className="mx-auto flex items-center justify-center flex-col p-10">
     <form className="container mx-auto flex justify-center items-center">
-      <div className="md:w-1/3 m-1">
+      <div className="md:w-1/6 mr-2">
         <input 
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-sm" 
+          className="bg-white appearance-none border-2 border-white rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500 text-sm shadow-md" 
           id="inline-type"
           type="text" 
           placeholder="Search Dog or Cat"
@@ -50,7 +50,7 @@ function PetFinderForm({ onSearch }) {
           onChange={(e) => setAnimalType(e.target.value)}
         />
       </div>
-      <div className="md:w-1/4 mr-1">
+      <div className="md:w-1/6 mr-1">
       <Autocomplete
           id="inline-location"
           type="text"
@@ -60,7 +60,7 @@ function PetFinderForm({ onSearch }) {
         />
       </div>
       <button 
-        className="search-btn shadow bg-green-700 hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm" 
+        className="search-btn shadow bg-green-700 hover:bg-green-600 focus:shadow-outline focus:outline-green-500 text-white font-bold py-3 px-4 rounded text-sm ml-2" 
         type="button"
         onClick={handleSearch}
         >

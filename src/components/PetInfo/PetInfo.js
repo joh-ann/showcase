@@ -47,21 +47,23 @@ function PetInfo() {
     <div className="flex flex-col">
       {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full && (
         <img 
-          className="pet-info-img w-1/4 flex self-center"
+          className="pet-info-img w-1/4 flex self-center mt-5 rounded-t-2xl"
           src={petInfo.photos[0].full}
           alt={petInfo.name} 
           id={petInfo.id}
           />
       ) || (
           <img 
-            className="w-1/4 flex self-center" 
+            className="w-1/4 flex self-center mt-5 rounded-t-2xl" 
             src={noImage} 
             alt={petInfo.name} 
           />
           )}
-        <div className="pet-info flex self-center text-lg font-semibold">{petInfo.name}</div>
-        <div className="pet-info flex self-center text-sm">{petInfo.age} · {petInfo.gender} · {petInfo.size}</div>
-        <div className="pet-info flex self-center text-sm">{petInfo.breeds.primary} · {petInfo.contact.address.city}, {petInfo.contact.address.state}</div>
+          <div className="pet-info-wrapper bg-green-200 flex flex-col self-center w-1/4 rounded-b-2xl p-1 pb-4">
+            <div className="pet-info self-center text-lg font-semibold text-center">{petInfo.name}</div>
+            <div className="pet-info self-center text-sm text-center">{petInfo.age} · {petInfo.gender} · {petInfo.size}</div>
+            <div className="pet-info self-center text-sm text-center">{petInfo.breeds.primary} · {petInfo.contact.address.city}, {petInfo.contact.address.state}</div>
+          </div>
         <div className="container flex self-center flex-row">
           <div className="pet-info w-1/2 p-2">
             <h2 className="text-xl font-semibold">About</h2>

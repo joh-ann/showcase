@@ -84,31 +84,31 @@ function PetFinder() {
   if (results === null) return null;
 
   return (
-    <div className="pet-finder h-screen">
+    <div className="pet-finder h-full bg-green-50">
       <PetFinderForm onSearch={handleSearch}/>
       <div className="flex justify-center">
-        <div className="container flex flex-wrap justify-center gap-2">
+        <div className="container flex flex-wrap justify-center gap-6">
           {results.map((pet) => (
             <Link 
-              className="pet-card md:w-1/2 lg:w-1/4" 
+              className="pet-card md:w-1/2 lg:w-1/4 bg-gray-600 rounded-2xl shadow-lg hover:brightness-110" 
               key={`${currentPage}-${pet.id}`}
               to={`/pets/${currentPage}/${pet.id}`}
               id={pet.id}
             >
                 {pet.photos && pet.photos.length > 0 && pet.photos[0].full && (
                   <img 
-                    className="pet-card-img w-full h-72 object-cover" 
+                    className="pet-card-img w-full h-72 object-cover rounded-t-xl" 
                     src={pet.photos[0].full} 
                     alt={pet.name} 
                   />
                 ) || (
                   <img 
-                    className="pet-card-img w-full h-72 object-cover" 
+                    className="pet-card-img w-full h-72 object-cover rounded-t-xl" 
                     src={noImage} 
                     alt={pet.name} 
                   />
                 )}
-                <div className="pet-card-info flex flex-col items-center text-sm w-full">
+                <div className="pet-card-info flex flex-col items-center text-md w-full p-2 text-white">
                   <h3>{pet.name} · {pet.gender[0]}</h3>
                   <div className="text-xs">{pet.contact.address.city}, {pet.contact.address.state}</div>
                   <div className="text-xs">{pet.age} · {pet.breeds.primary}</div>
@@ -117,17 +117,17 @@ function PetFinder() {
           ))}
         </div>
       </div>
-      <div className="page-btns flex justify-end mx-auto w-3/4">
+      <div className="page-btns flex justify-end mx-auto w-3/4 p-4">
         {currentPage > 1 && (
         <Link to={`/pets/${currentPage - 1}`} 
-          className="previous-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+          className="previous-btn shadow bg-green-700 hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-5 rounded text-md m-2" 
           onClick={handlePreviousPage}
           >
           Previous
         </Link>
         )}
         <Link to={`/pets/${currentPage + 1}`} 
-          className="next-btn shadow bg-purple-700 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-sm m-2" 
+          className="next-btn shadow bg-green-700 hover:bg-green-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-5 rounded text-md m-2" 
           onClick={handleNextPage}
           >
           Next
