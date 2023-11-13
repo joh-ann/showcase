@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+import unleashLogo from '../../images/unleash-logo.png';
 
 function Header() {
   return (
     <div className="header bg-gray-700 p-5 flex justify-between drop-shadow-xl">
-      <div className="logo">
-        <h1 className="text-3xl font-bold text-white">Unleash</h1>
-      </div>
-      <nav className="flex items-end gap-4 text-lg text-white mr-10">
+      <img 
+        className="pet-card-img w-1/6 ml-20 mr-10" 
+        src={unleashLogo} 
+        alt="Unleash Logo"
+      />
+      <nav className="flex items-end gap-4 text-xl text-white mr-20">
         <Link to="/" className="hover:underline cursor-pointer hover:text-green-200 transition duration-300 ease-in-out">
           Home
         </Link>
