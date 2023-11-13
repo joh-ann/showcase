@@ -36,7 +36,7 @@ function PetInfo() {
   }, [petId, accessToken]);
   
   if (!petInfo) {
-    return <div>Loading...</div>;
+    return <div className="loading flex justify-center p-10 text-2xl">Loading...</div>;
   }
 
   const handleViewOnPetFinder = () => {
