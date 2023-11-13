@@ -75,13 +75,13 @@ describe('PetInfo', () => {
     cy.get('.pet-info').contains('Baby · Female · Medium');
     cy.get('.pet-info').contains('Domestic Medium Hair · The Woodlands, TX');
     cy.get('.pet-info').contains('About');
-    cy.get('.pet-info').contains('Characteristics');
+    cy.get('.pet-info').contains('CHARACTERISTICS');
     cy.get('.pet-info').contains('Playful');
-    cy.get('.pet-info').contains('Coat Length');
+    cy.get('.pet-info').contains('COAT LENGTH');
     cy.get('.pet-info').contains('Medium');
-    cy.get('.pet-info').contains('House-Trained');
+    cy.get('.pet-info').contains('HOUSE-TRAINED');
     cy.get('.pet-info').contains('Yes');
-    cy.get('.pet-info').contains('Health');
+    cy.get('.pet-info').contains('HEALTH');
     cy.get('.pet-info').contains('Vaccinations up to date, spayed/neutered');
     cy.get('.pet-intro').contains('Meet Ella');
     cy.get('.pet-intro').contains('Ella is an easy-going kitten who came into rescue with her sister, Emma. We would love to see them...');
