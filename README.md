@@ -1,71 +1,63 @@
-# Getting Started with Create React App
+<div align="center">
+  
+<img width="300" alt="Unleash Logo" src="https://github.com/joh-ann/unleash/assets/126308696/1213955e-b144-4f9a-b5c1-3a57ffa5ba40">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Deployed Link](https://unleash-jd.vercel.app/)
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+### Overview
+Unleash is a 5-day solo project, built with React and Tailwind CSS. Unleash is a purpose-driven website designed to simplify the pet adoption process, with a dual mission of facilitating the rehoming of pets and increasing public awareness regarding the availability of high-quality, adoptable companions.
 
-### `npm start`
+### Preview
+<div align="center">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img width="1220" alt="Screenshot 2023-11-12 at 21 53 45" src="https://github.com/joh-ann/unleash/assets/126308696/72b48a89-7bf3-4edb-b0de-7553c361d70f">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="1311" alt="Screenshot 2023-11-12 at 21 54 24" src="https://github.com/joh-ann/unleash/assets/126308696/829cc7ea-0f03-4ffe-95be-8e3b4f28d2f6">
 
-### `npm test`
+<img width="1088" alt="Screenshot 2023-11-12 at 21 55 27" src="https://github.com/joh-ann/unleash/assets/126308696/c9ddbccb-d301-4b40-841a-32f6540d0038">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</div>
 
-### `npm run build`
+### Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+</br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Goals
+```
+- Use the technology learned in the past month - React, Router, PropTypes and Asynchronous JavaScript
+- End to end testing with Cypress
+- Work with an external API that requires an API key and token to receive data
+- Learn and implement Tailwind CSS
+- Create personas and user stories for a targeted audience 
+- Build an app that is responsive across mobile, tablet and desktop sizes
+- Ability for users to store/manipulate the data displayed in the app
+```
 
-### `npm run eject`
+### User Stories
+```
+Users should be able to:
+- Browse through the available pets
+- Click on a pet and get more information
+- Narrow their search down to location, and see pets that are near them
+- See error pages/messages if there are no pets available in the area
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Contributors
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Johann Dee](https://linkedin.com//in/johanndee)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# showcase
