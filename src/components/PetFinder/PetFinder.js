@@ -137,11 +137,6 @@ function PetFinder() {
           >
           Next
         </Link>
-        {/* {error && (
-          <div className="error-message h-screen bg-green-50 flex justify-center text-xl text-red-500 mt-4">
-            {error}
-          </div>
-          )} */}
           </div>
     </div>
   );

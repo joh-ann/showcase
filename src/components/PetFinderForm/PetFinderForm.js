@@ -43,6 +43,8 @@ function PetFinderForm({ onSearch }) {
     }
 
     setLocation("");
+    setAnimalType("");
+    document.querySelector("#inline-location").value = "";
   };
 
 
