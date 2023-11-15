@@ -16,14 +16,27 @@ describe('Homepage', () => {
       });
     }).as('googleMapsAPI');
 
+    cy.intercept('GET', 'https://api.petfinder.com/v2/animals*', 
+    {
+      statusCode: 200,
+      fixture: 'pets.json' 
+    }
+  ).as('getPetResults');
+
     cy.visit('http://localhost:3000');
 
     cy.wait('@getToken');
     cy.wait('@googleMapsAPI');
+    cy.wait('@getPetResults');
 
     cy.url().should('eq', 'http://localhost:3000/');
     cy.get('.header').should('exist');
 
     cy.get('.header').contains('Home');
+  })
+    it('test a wildcard page', () => {
+      cy.visit('http://localhost:3000/test');
+      cy.get('.header').should('exist');
+      cy.get('.not-found-hound').should('exist');
   });
 });
