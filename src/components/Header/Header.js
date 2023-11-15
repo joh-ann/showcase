@@ -10,7 +10,7 @@ function Header() {
         alt="Unleash Logo"
       />
       <nav className="flex items-end gap-4 text-xl text-white">
-        <Link to="pets/1" className="hover:underline cursor-pointer hover:text-green-200 transition duration-300 ease-in-out">
+        <Link to="/" className="hover:underline cursor-pointer hover:text-green-200 transition duration-300 ease-in-out">
           Home
         </Link>
       </nav>
