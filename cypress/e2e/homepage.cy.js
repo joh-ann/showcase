@@ -34,9 +34,10 @@ describe('Homepage', () => {
 
     cy.get('.header').contains('Home');
   })
-    it('test a wildcard page', () => {
-      cy.visit('http://localhost:3000/test');
-      cy.get('.header').should('exist');
-      cy.get('.not-found-hound').should('exist');
+
+  it('test a wildcard page', () => {
+    cy.visit('http://localhost:3000/test');
+    cy.get('.header').should('exist');
+    cy.get('.not-found-hound').should('exist');
   });
 });
