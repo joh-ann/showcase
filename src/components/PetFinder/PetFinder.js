@@ -84,7 +84,7 @@ function PetFinder() {
   if (results === null) return null;
 
   return (
-    <div className="pet-finder h-full bg-green-50">
+    <div className="pet-finder h-full bg-green-50 animate-fade-up">
       <PetFinderForm onSearch={handleSearch}/>
       <div className="flex justify-center">
         <div className="container flex flex-wrap justify-center gap-6">
@@ -117,6 +117,11 @@ function PetFinder() {
           ))}
         </div>
       </div>
+      {error && (
+          <div className="error-message h-screen bg-green-50 flex justify-center text-xl text-red-500 mt-4">
+            {error}
+          </div>
+          )}
       <div className="page-btns flex justify-end mx-auto w-3/4 p-4">
         {currentPage > 1 && (
         <Link to={`/pets/${currentPage - 1}`} 
@@ -132,12 +137,12 @@ function PetFinder() {
           >
           Next
         </Link>
-      </div>
-      {error && (
-        <div className="error-message text-red-500 mt-4">
-          {error}
-        </div>
-      )}
+        {/* {error && (
+          <div className="error-message h-screen bg-green-50 flex justify-center text-xl text-red-500 mt-4">
+            {error}
+          </div>
+          )} */}
+          </div>
     </div>
   );
 }

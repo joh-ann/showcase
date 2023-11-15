@@ -61,7 +61,7 @@ function App() {
         <Routes>
           <Route 
           path="/" 
-          element={<Unleash />} 
+          element={<PetFinder />} 
           />
           <Route 
           path="/pets/:page" 
