@@ -83,6 +83,7 @@ describe('PetInfo', () => {
     cy.get('.pet-intro').contains('Meet Ella');
     cy.get('.pet-intro').contains('Ella is an easy-going kitten who came into rescue with her sister, Emma. We would love to see them...');
 
+    cy.get('.back-btn').should('exist');
     cy.get('.petfinder-btn').should('exist');
   });
 });
