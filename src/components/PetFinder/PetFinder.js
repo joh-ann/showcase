@@ -37,10 +37,14 @@ function PetFinder() {
   }, [accessToken, currentPage]);
 
   const handleNextPage = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
   const handlePreviousPage = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
