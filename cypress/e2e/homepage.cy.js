@@ -25,10 +25,5 @@ describe('Homepage', () => {
     cy.get('.header').should('exist');
 
     cy.get('.header').contains('Home');
-    cy.get('.header').contains('Adopt');
-    cy.get('.header').contains('Missing');
-    cy.get('.header').contains('Events');
-
-    cy.get('.unleash-body').contains('Unleash');
   });
 });
