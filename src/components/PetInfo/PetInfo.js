@@ -44,7 +44,7 @@ function PetInfo() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-green-50">
+    <div className="flex flex-col h-full bg-green-50 animate-fade">
       {petInfo.photos && petInfo.photos.length > 0 && petInfo.photos[0].full && (
         <img 
           className="pet-info-img w-1/4 flex self-center mt-5 rounded-t-2xl"
@@ -64,7 +64,7 @@ function PetInfo() {
             <div className="pet-info self-center text-sm text-center">{petInfo.age} · {petInfo.gender} · {petInfo.size}</div>
             <div className="pet-info self-center text-sm text-center">{petInfo.breeds.primary} · {petInfo.contact.address.city}, {petInfo.contact.address.state}</div>
           </div>
-        <div className="container flex self-center flex-row m-10 bg-gray-600 text-white rounded-xl shadow-md">
+        <div className="container w-1/2 flex self-center flex-row m-10 bg-gray-600 text-white rounded-xl shadow-md">
           <div className="pet-info w-1/2 p-8">
             <h2 className="text-2xl font-semibold mb-4">About</h2>
               <div className="flex flex-col">
@@ -82,6 +82,12 @@ function PetInfo() {
               <h2 className="text-2xl font-semibold mb-4">Meet {petInfo.name}</h2>
               <p className="text-sm">{petInfo.description}</p>
               <div className="flex justify-end mt-20">
+              <button 
+                  className="back-btn bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-2"
+                  onClick={() => window.history.back()}
+                  >
+                  Go back
+                </button>
                 <button 
                   className="petfinder-btn bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                   onClick={handleViewOnPetFinder}

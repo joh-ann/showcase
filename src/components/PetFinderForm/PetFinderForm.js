@@ -29,11 +29,22 @@ function PetFinderForm({ onSearch }) {
       return;
     }
 
-    const selectedLocation = document.querySelector("#inline-location").value || location.trim();
-    console.log("Typed Location:", selectedLocation)
+    const typedLocation = document.querySelector("#inline-location").value || location.trim();
+    console.log("Typed Location:", typedLocation)
 
     setError("");
-    onSearch({ animalType, location: selectedLocation });
+
+    const hasNumber = /\d/.test(typedLocation);
+
+    if (hasNumber) {
+      onSearch({ animalType, location: location });
+    } else {
+      onSearch({ animalType, location: typedLocation });
+    }
+
+    setLocation("");
+    setAnimalType("");
+    document.querySelector("#inline-location").value = "";
   };
 
 
