@@ -49,7 +49,7 @@ function App() {
     return (
       <div className="not-found flex flex-col justify-center items-center p-10 text-2xl">
         <h1 className="mb-10">Page Not Found</h1>
-        <img src={imageUrl} alt="Page Not Found" className="w-1/2 h-auto"/>
+        <img src={imageUrl} alt="Page Not Found" className="not-found-hound w-1/2 h-auto"/>
       </div>
   )}
 

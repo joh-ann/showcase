@@ -79,4 +79,40 @@ describe('Error', () => {
     cy.get('.search-btn').click();
     cy.get('.error-message').contains('Please enter a valid location');
   });
+
+  it('should display 404', () => {
+    cy.intercept('POST', 'https://api.petfinder.com/v2/oauth2/token', {
+      statusCode: 404,
+      body: {
+        access_token: 'sampleToken',
+        token_type: 'Bearer',
+        expires_in: 3600,
+      },
+    }).as('tokenError');
+
+    cy.visit('http://localhost:3000');
+    cy.wait('@tokenError')
+    cy.get('.header').should('exist');
+
+    cy.get('.header').contains('Home');
+    cy.get('#root').contains('Error: Failed to obtain access token')
+  });
+
+  it('should display 500', () => {
+    cy.intercept('POST', 'https://api.petfinder.com/v2/oauth2/token', {
+      statusCode: 500,
+      body: {
+        access_token: 'sampleToken',
+        token_type: 'Bearer',
+        expires_in: 3600,
+      },
+    }).as('tokenError');
+
+    cy.visit('http://localhost:3000');
+    cy.wait('@tokenError')
+    cy.get('.header').should('exist');
+
+    cy.get('.header').contains('Home');
+    cy.get('#root').contains('Error: Failed to obtain access token')
+  });
 });
